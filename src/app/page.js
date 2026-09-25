@@ -1,19 +1,14 @@
-import Hero from "./components/Hero";
+import Banner from "./components/Banner";
 
 export default function HomePage() {
-  // Temporary values.
-  // Later these will come from Today's Plan and Saved data.
-  const planCount = 3;
-  const savedCount = 5;
-
   return (
     <main className="min-h-screen bg-[#090b0f]">
-      <Hero />
+      <Banner />
 
       {/* Workout Library */}
       <section
         id="library"
-        className="mx-auto min-h-screen max-w-7xl px-4 py-20 sm:px-6 lg:px-8"
+        className="mx-auto min-h-screen container px-4 py-20 sm:px-6 lg:px-8"
       >
         <p className="text-sm font-bold text-[#ccff00]">WORKOUT LIBRARY</p>
 
