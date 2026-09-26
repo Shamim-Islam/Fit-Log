@@ -13,25 +13,25 @@ const PlanWorkoutCard = ({ workout, isSaved = false, onRemove, onDone }) => {
           : "border-white/10 hover:border-white/20"
       }`}
     >
-      <div className="flex flex-col sm:flex-row">
-        {/* Thumbnail */}
-        <div className="relative h-48 w-full shrink-0 sm:h-auto sm:w-64">
-          <Image
-            src={workout.image}
-            alt={workout.name}
-            fill
-            className="object-cover"
-            sizes="(max-width: 640px) 100vw, 256px"
-          />
-          {workout.completed && (
-            <div className="absolute left-3 top-3 flex items-center gap-1 rounded-full bg-[#ccff00] px-2 py-1 text-[10px] font-black uppercase text-[#090b0f]">
-              <Check size={12} />
-              Done
-            </div>
-          )}
-        </div>
+      <div className="flex justify-between sm:items-center flex-col sm:flex-row">
+        <div className="flex flex-col sm:flex-row">
+          {/* Thumbnail */}
+          <div className="relative h-48 w-full shrink-0 sm:h-auto sm:w-64">
+            <Image
+              src={workout.image}
+              alt={workout.name}
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, 256px"
+            />
+            {workout.completed && (
+              <div className="absolute left-3 top-3 flex items-center gap-1 rounded-full bg-[#ccff00] px-2 py-1 text-[10px] font-black uppercase text-[#090b0f]">
+                <Check size={12} />
+                Done
+              </div>
+            )}
+          </div>
 
-        {/* <div className=""> */}
           {/* Content */}
           <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
             <div>
@@ -64,39 +64,39 @@ const PlanWorkoutCard = ({ workout, isSaved = false, onRemove, onDone }) => {
               </span>
             </div>
           </div>
-          {/* Actions */}
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <Link
-              href={`/workouts/${workout.id}`}
-              className="rounded border border-white/10 px-5 py-2.5 text-[11px] font-black uppercase text-white transition hover:border-white/30 hover:bg-white/5"
-            >
-              View Details
-            </Link>
-
-            {!isSaved && (
-              <button
-                onClick={() => onDone(workout.id)}
-                className={`flex items-center gap-2 rounded px-5 py-2.5 text-[11px] font-black uppercase transition ${
-                  workout.completed
-                    ? "bg-[#ccff00] text-[#090b0f]"
-                    : "bg-[#ccff00] text-[#090b0f] hover:bg-[#b3e600]"
-                }`}
-              >
-                <Check size={14} strokeWidth={3} />
-                {workout.completed ? "Completed" : "Mark as Done"}
-              </button>
-            )}
-
-            <button
-              onClick={() => onRemove(workout.id)}
-              className="ml-auto flex items-center justify-center rounded p-2.5 text-zinc-500 transition hover:bg-red-500/10 hover:text-red-400"
-              title="Remove"
-            >
-              <X size={18} />
-            </button>
-          </div>
         </div>
-      {/* </div> */}
+        {/* Actions */}
+        <div className="mr-7 flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-0">
+          <Link
+            href={`/workouts/${workout.id}`}
+            className="rounded-full border border-white/10 px-5 py-2.5 text-[11px] font-black uppercase text-white transition hover:border-[#ccff00]/30 hover:bg-white/5 hover:text-[#ccff00]"
+          >
+            View Details
+          </Link>
+
+          {!isSaved && (
+            <button
+              onClick={() => onDone(workout.id)}
+              className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-[11px] font-black uppercase transition ${
+                workout.completed
+                  ? "bg-[#ccff00] text-[#090b0f]"
+                  : "bg-[#ccff00] text-[#090b0f] hover:bg-[#b3e600]"
+              }`}
+            >
+              <Check size={14} strokeWidth={3} />
+              {workout.completed ? "Completed" : "Mark as Done"}
+            </button>
+          )}
+
+          <button
+            onClick={() => onRemove(workout.id)}
+            className="ml-auto flex items-center justify-center rounded p-2.5 text-zinc-500 transition hover:bg-red-500/10 hover:text-red-400"
+            title="Remove"
+          >
+            <X size={18} />
+          </button>
+        </div>
+      </div>
     </article>
   );
 };
