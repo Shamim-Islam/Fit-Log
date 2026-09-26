@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const FitLogContext = createContext();
 
@@ -11,12 +12,6 @@ export const FitLogProvider = ({ children }) => {
   const [todayPlan, setTodayPlan] = useState([]);
   const [savedWorkouts, setSavedWorkouts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
-  const [toast, setToast] = useState({
-    show: false,
-    message: "",
-    type: "success",
-  });
 
   // Load data from localStorage
   useEffect(() => {
@@ -52,23 +47,6 @@ export const FitLogProvider = ({ children }) => {
     }
   }, [savedWorkouts, isLoading]);
 
-  // Toast
-  const showToast = (message, type = "success") => {
-    setToast({
-      show: true,
-      message,
-      type,
-    });
-
-    setTimeout(() => {
-      setToast({
-        show: false,
-        message: "",
-        type: "success",
-      });
-    }, 2500);
-  };
-
   // Add to today's plan
   const addToPlan = (workout) => {
     const alreadyExists = todayPlan.some(
@@ -76,14 +54,14 @@ export const FitLogProvider = ({ children }) => {
     );
 
     if (alreadyExists) {
-      showToast("Workout is already in today's plan", "error");
+      toast.error("Workout is already in today's plan");
       return;
     }
 
-    if (todayPlan.length >= 5) {
-      showToast("Today's plan is limited to 5 workouts", "error");
-      return;
-    }
+    // if (todayPlan.length >= 5) {
+    //   toast.error("Today's plan is limited to 5 workouts");
+    //   return;
+    // }
 
     setTodayPlan((prev) => [
       ...prev,
@@ -93,7 +71,7 @@ export const FitLogProvider = ({ children }) => {
       },
     ]);
 
-    showToast("Added to today's plan");
+    toast.success("Added to today's plan");
   };
 
   // Remove from today's plan
@@ -102,7 +80,7 @@ export const FitLogProvider = ({ children }) => {
       prev.filter((item) => String(item.id) !== String(id)),
     );
 
-    showToast("Removed from today's plan");
+    toast.success("Removed from today's plan");
   };
 
   // Mark as done
@@ -126,13 +104,13 @@ export const FitLogProvider = ({ children }) => {
     );
 
     if (alreadySaved) {
-      showToast("Workout is already saved", "error");
+      toast.error("Workout is already saved");
       return;
     }
 
     setSavedWorkouts((prev) => [...prev, workout]);
 
-    showToast("Saved for later");
+    toast.success("Saved for later");
   };
 
   // Remove saved workout
@@ -141,7 +119,7 @@ export const FitLogProvider = ({ children }) => {
       prev.filter((item) => String(item.id) !== String(id)),
     );
 
-    showToast("Removed from saved");
+    toast.success("Removed from saved");
   };
 
   return (
@@ -155,25 +133,9 @@ export const FitLogProvider = ({ children }) => {
         toggleDone,
         saveForLater,
         removeSavedWorkout,
-        showToast,
       }}
     >
       {children}
-
-      {/* Toast */}
-      {toast.show && (
-        <div className="fixed bottom-6 right-6 z-999">
-          <div
-            className={`min-w-65 border px-5 py-4 text-sm font-bold uppercase tracking-wide shadow-2xl ${
-              toast.type === "error"
-                ? "border-red-500 bg-red-500 text-white"
-                : "border-[#ccff00] bg-[#ccff00] text-[#090b0f]"
-            }`}
-          >
-            {toast.message}
-          </div>
-        </div>
-      )}
     </FitLogContext.Provider>
   );
 };
