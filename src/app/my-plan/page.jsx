@@ -6,6 +6,7 @@ import { Activity, Flame, Timer, ChevronDown } from "lucide-react";
 
 import PlanWorkoutCard from "../components/PlanWorkoutCard";
 import { useFitLog } from "../context/FitLogContext";
+import { Oswald } from "next/font/google";
 
 const MyPlanPage = () => {
   const {
@@ -29,11 +30,11 @@ const MyPlanPage = () => {
       exercises: currentList.length,
       minutes: currentList.reduce(
         (total, workout) => total + Number(workout.duration || 0),
-        0
+        0,
       ),
       calories: currentList.reduce(
         (total, workout) => total + Number(workout.caloriesBurned || 0),
-        0
+        0,
       ),
     };
   }, [currentList]);
@@ -56,14 +57,14 @@ const MyPlanPage = () => {
 
   return (
     <main className="min-h-screen bg-[#090b0f] text-white">
-      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <section className="mx-auto container px-4 py-12 sm:px-6 lg:px-8">
         {/* Header */}
         <div>
           <p className="mb-3 text-xs font-black uppercase tracking-[0.25em] text-[#ccff00]">
             Your workout log
           </p>
 
-          <h1 className="text-5xl font-black uppercase tracking-tight sm:text-6xl">
+          <h1 className="font-oswald text-5xl font-black uppercase tracking-tight sm:text-6xl">
             My Plan
           </h1>
 
@@ -73,7 +74,7 @@ const MyPlanPage = () => {
         </div>
 
         {/* Metrics */}
-        <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3 font-oswald ">
           <MetricCard
             icon={<Activity size={20} />}
             label="Exercises"
@@ -159,9 +160,7 @@ const MyPlanPage = () => {
                   isSaved={activeTab === "saved"}
                   onDone={toggleDone}
                   onRemove={
-                    activeTab === "plan"
-                      ? removeFromPlan
-                      : removeSavedWorkout
+                    activeTab === "plan" ? removeFromPlan : removeSavedWorkout
                   }
                 />
               ))}

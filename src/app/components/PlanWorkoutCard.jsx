@@ -24,45 +24,46 @@ const PlanWorkoutCard = ({ workout, isSaved = false, onRemove, onDone }) => {
             sizes="(max-width: 640px) 100vw, 256px"
           />
           {workout.completed && (
-            <div className="absolute left-3 top-3 flex items-center gap-1 rounded bg-[#ccff00] px-2 py-1 text-[10px] font-black uppercase text-[#090b0f]">
+            <div className="absolute left-3 top-3 flex items-center gap-1 rounded-full bg-[#ccff00] px-2 py-1 text-[10px] font-black uppercase text-[#090b0f]">
               <Check size={12} />
               Done
             </div>
           )}
         </div>
 
-        {/* Content */}
-        <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
-          <div>
-            <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-[#ccff00]">
-              {workout.muscleGroups?.join(" / ") || "Full Body"}
-            </p>
+        {/* <div className=""> */}
+          {/* Content */}
+          <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
+            <div>
+              <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-[#ccff00]">
+                {workout.muscleGroups?.join(" / ") || "Full Body"}
+              </p>
 
-            <h3 className="text-2xl font-black uppercase tracking-tight text-white">
-              {workout.name}
-            </h3>
+              <h3 className="font-oswald text-2xl font-black uppercase tracking-tight text-white">
+                {workout.name}
+              </h3>
 
-            <p className="mt-1 text-sm text-zinc-500">{workout.equipment}</p>
+              <p className="mt-1 text-sm text-zinc-500">{workout.equipment}</p>
+            </div>
+
+            {/* Stats */}
+            <div className="mt-6 flex flex-wrap items-center gap-5 text-xs font-medium text-zinc-400">
+              <span className="flex items-center gap-1.5">
+                <Clock3 size={16} className="text-zinc-500" />
+                {workout.duration} min
+              </span>
+
+              <span className="flex items-center gap-1.5">
+                <Flame size={16} className="text-zinc-500" />
+                {workout.caloriesBurned} kcal
+              </span>
+
+              <span className="flex items-center gap-1.5">
+                <Star size={16} className="text-[#ccff00]" fill="#ccff00" />
+                {workout.rating}
+              </span>
+            </div>
           </div>
-
-          {/* Stats */}
-          <div className="mt-6 flex flex-wrap items-center gap-5 text-xs font-medium text-zinc-400">
-            <span className="flex items-center gap-1.5">
-              <Clock3 size={16} className="text-zinc-500" />
-              {workout.duration} min
-            </span>
-
-            <span className="flex items-center gap-1.5">
-              <Flame size={16} className="text-zinc-500" />
-              {workout.caloriesBurned} kcal
-            </span>
-
-            <span className="flex items-center gap-1.5">
-              <Star size={16} className="text-[#ccff00]" fill="#ccff00" />
-              {workout.rating}
-            </span>
-          </div>
-
           {/* Actions */}
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <Link
@@ -95,7 +96,7 @@ const PlanWorkoutCard = ({ workout, isSaved = false, onRemove, onDone }) => {
             </button>
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </article>
   );
 };
