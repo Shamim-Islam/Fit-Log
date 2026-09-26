@@ -20,7 +20,7 @@ const Banner = () => {
           </div>
 
           {/* Heading */}
-          <h1 className="text-5xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl">
+          <h1 className="font-oswald text-5xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl">
             Train With Intent.
             <br />
             <span className="text-[#ccff00]">Log Every Set.</span>

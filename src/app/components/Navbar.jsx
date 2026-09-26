@@ -1,10 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Dumbbell } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import Banner from "./Banner";
 
 const Navbar = ({ planCount = 0, savedCount = 0 }) => {
   const pathname = usePathname();
@@ -66,11 +64,11 @@ const Navbar = ({ planCount = 0, savedCount = 0 }) => {
           {/* Plan Badge */}
           <Link
             href="/my-plan"
-            className="flex items-center gap-2 px-3 py-1.5 text-[16px] tracking-wide hover:scale-105 hover:text-[#ccff00]"
+            className="flex items-center gap-2 px-3 py-1.5 text-[15px] tracking-wide hover:scale-105 hover:text-[#ccff00]"
           >
             <span>Plan</span>
 
-            <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-[#ccff00] px-1.5 text-[15px] font-black text-[#090b0f] ">
+            <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-[#ccff00] px-1.5 text-[14px] font-black text-[#090b0f] ">
               {planCount}
             </span>
           </Link>
@@ -78,11 +76,11 @@ const Navbar = ({ planCount = 0, savedCount = 0 }) => {
           {/* Saved Badge */}
           <Link
             href="/my-plan"
-            className="flex items-center gap-2 px-3 py-1.5 text-[16px] tracking-wide text-white transition-all hover:text-[#ccff00] hover:scale-105"
+            className="flex items-center gap-2 px-3 py-1.5 text-[15px] tracking-wide text-white transition-all hover:text-[#ccff00] hover:scale-105"
           >
             <span>Saved</span>
 
-            <span className="flex h-7 min-w-7 items-center justify-center rounded-full bg-white/5 px-1.5 text-[15px] text-[#ccff00] font-bold">
+            <span className="flex h-7 min-w-7 items-center justify-center rounded-full bg-white/5 px-1.5 text-[14px] text-[#ccff00] font-bold">
               {savedCount}
             </span>
           </Link>
