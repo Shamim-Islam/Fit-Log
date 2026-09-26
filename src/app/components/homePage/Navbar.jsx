@@ -3,11 +3,18 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { useFitLog } from "../../context/FitLogContext";
 
-const Navbar = ({ planCount = 0, savedCount = 0 }) => {
+const Navbar = () => {
   const pathname = usePathname();
 
-  const isWorkoutActive = pathname === "/";
+  const { todayPlan, savedWorkouts } = useFitLog();
+
+  const planCount = todayPlan.length;
+  const savedCount = savedWorkouts.length;
+
+  const isWorkoutActive = pathname === "/" || pathname.startsWith("/workouts");
+
   const isPlanActive = pathname === "/my-plan";
 
   return (
