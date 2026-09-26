@@ -25,18 +25,14 @@ const Navbar = () => {
           <Image
             src="/images/logo.png"
             alt="Fit log logo"
-            width={35}
-            height={30}
+            width={25}
+            height={20}
             className="transition-transform duration-200 group-hover:scale-105"
           ></Image>
 
           <div className="leading-none">
-            <p className="text-lg font-black tracking-tight text-white">
+            <p className="font-oswald text-2xl font-black tracking-tight text-white">
               FIT<span className="text-[#ccff00]">LOG</span>
-            </p>
-
-            <p className="mt-1 text-[8px] font-bold tracking-[0.25em] text-zinc-500">
-              TRAIN • LOG • GROW
             </p>
           </div>
         </Link>
