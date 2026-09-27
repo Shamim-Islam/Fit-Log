@@ -90,7 +90,7 @@ const PlanWorkoutCard = ({ workout, isSaved = false, onRemove, onDone }) => {
 
           <button
             onClick={() => onRemove(workout.id)}
-            className="ml-auto flex items-center justify-center rounded p-2.5 text-zinc-500 transition hover:bg-red-500/10 hover:text-red-400"
+            className="rounded-full ml-auto flex items-center justify-center rounded p-2.5 text-zinc-500 transition hover:bg-red-500/10 hover:text-red-500"
             title="Remove"
           >
             <X size={18} />

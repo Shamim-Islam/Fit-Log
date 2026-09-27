@@ -60,6 +60,7 @@ const MyPlanPage = () => {
       <section className="mx-auto container px-4 py-12 sm:px-6 lg:px-8">
         {/* Header */}
         <div>
+          <span className="h-0.5 w-8 bg-[#ccff00]" />
           <p className="mb-3 text-xs font-black uppercase tracking-[0.25em] text-[#ccff00]">
             Your workout log
           </p>
@@ -74,7 +75,7 @@ const MyPlanPage = () => {
         </div>
 
         {/* Metrics */}
-        <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3 font-oswald ">
+        <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3 text-center">
           <MetricCard
             icon={<Activity size={20} />}
             label="Exercises"
@@ -144,9 +145,22 @@ const MyPlanPage = () => {
         {/* Content */}
         <div className="mt-8">
           {isLoading ? (
-            <div className="flex min-h-[300px] items-center justify-center border border-white/10">
-              <p className="text-sm font-black uppercase tracking-widest text-zinc-500">
-                Loading workouts…
+            <div className="flex flex-col items-center text-center min-h-75 justify-center border border-white/10">
+              {/* Spinner */}
+              <div className="relative flex h-16 w-16 items-center justify-center">
+                <div className="absolute inset-0 animate-spin rounded-full border-2 border-zinc-800 border-t-[#ccff00]" />
+
+                <div className="h-8 w-8 rounded-full bg-[#ccff00]" />
+              </div>
+
+              {/* Text */}
+              <p className="mt-6 text-xs font-black uppercase tracking-[0.3em] text-white">
+                Loading Workouts
+                <span className="ml-1 text-[#ccff00]">...</span>
+              </p>
+
+              <p className="mt-2 text-[10px] uppercase tracking-widest text-zinc-600">
+                Train with intent
               </p>
             </div>
           ) : sortedList.length === 0 ? (
@@ -174,21 +188,21 @@ const MyPlanPage = () => {
 
 const MetricCard = ({ icon, label, value }) => {
   return (
-    <div className="flex flex-col justify-center border border-white/10 bg-[#101419] p-6">
+    <div className="flex flex-col justify-center border border-white/10 bg-[#101419] p-6 rounded-2xl items-center">
       <div className="flex items-center gap-2 text-[#ccff00]">
         {icon}
         <span className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500">
           {label}
         </span>
       </div>
-      <p className="mt-2 text-4xl font-black text-white">{value}</p>
+      <p className="font-oswald mt-2 text-4xl font-black text-white">{value}</p>
     </div>
   );
 };
 
 const EmptyState = () => {
   return (
-    <div className="flex min-h-[360px] flex-col items-center justify-center border border-dashed border-white/10 px-6 text-center">
+    <div className="flex min-h-90 flex-col items-center justify-center border border-dashed border-white/10 px-6 text-center">
       <div className="mb-5 flex h-14 w-14 items-center justify-center border border-[#ccff00]/30 text-[#ccff00]">
         <Activity size={24} />
       </div>

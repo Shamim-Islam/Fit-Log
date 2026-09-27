@@ -9,7 +9,7 @@ const Library = ({ workouts = [] }) => {
       <div className="">
         {/* Heading */}
         <div className="mb-10">
-          <div className="mb-4 h-[3px] w-10 bg-[#ccff00]" />
+          <div className="mb-4 h-0.75 w-10 bg-[#ccff00]" />
 
           <h2 className="font-oswald text-4xl font-black uppercase leading-none tracking-tight text-white sm:text-5xl">
             The Library
@@ -29,7 +29,7 @@ const Library = ({ workouts = [] }) => {
 
         {/* Empty State */}
         {workouts.length === 0 && (
-          <div className="flex min-h-[250px] items-center justify-center rounded-xl border border-white/10 bg-[#101419]">
+          <div className="flex min-h-62.5 items-center justify-center rounded-xl border border-white/10 bg-[#101419]">
             <p className="text-sm text-zinc-500">No workouts found.</p>
           </div>
         )}

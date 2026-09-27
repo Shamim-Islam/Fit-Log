@@ -1,5 +1,5 @@
-// const API_URL = "https://api.abcz.workers.dev/api/fitlog";
-const API_URL = "https://quickmock.dev/m/DducCtkHeJK4";
+const API_URL = "https://api.abcz.workers.dev/api/fitlog";
+// const API_URL = "https://quickmock.dev/m/DducCtkHeJK4";
 
 export const getWorkouts = async () => {
   const res = await fetch(API_URL, {
