@@ -122,7 +122,7 @@ const WorkoutDetails = ({ workout }) => {
             </h1>
 
             {/* Description */}
-            <p className="mt-4 max-w-2xl text-sm leading-6 text-zinc-400">
+            <p className="mt-4 max-w-2xl text-[15px] leading-6 text-zinc-400">
               {description}
             </p>
 
@@ -185,11 +185,11 @@ const WorkoutDetails = ({ workout }) => {
               <div className="space-y-3">
                 {instructions.map((instruction, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#ccff00] text-[10px] font-black text-[#090b0f]">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#ccff00] text-[11px] font-black text-[#090b0f]">
                       {index + 1}
                     </span>
 
-                    <p className="pt-0.5 text-xs leading-5 text-zinc-400">
+                    <p className="pt-0.5 text-sm leading-5 text-zinc-400">
                       {instruction}
                     </p>
                   </div>
@@ -236,11 +236,11 @@ const WorkoutDetails = ({ workout }) => {
 const SpecRow = ({ label, value }) => {
   return (
     <div className="flex items-center justify-between border-b border-white/10 py-3">
-      <span className="text-[9px] font-bold uppercase tracking-wider text-zinc-600">
+      <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-600">
         {label}
       </span>
 
-      <span className="text-xs font-semibold text-zinc-200">{value}</span>
+      <span className="text-sm font-semibold text-zinc-200">{value}</span>
     </div>
   );
 };
