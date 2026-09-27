@@ -95,6 +95,7 @@ export const FitLogProvider = ({ children }) => {
           : item,
       ),
     );
+    toast.success("Mark as done succesfully");
   };
 
   // Save for later

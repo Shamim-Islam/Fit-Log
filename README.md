@@ -31,7 +31,7 @@ FitLog is a sleek and intuitive fitness companion designed to help you stay cons
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 1. **📅 Daily Workout Plan**  
    Cap your day with a maximum of five lifts. Add exercises to your plan and check them off as you complete them.
@@ -50,8 +50,9 @@ FitLog is a sleek and intuitive fitness companion designed to help you stay cons
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/your-username/fitlog.git
+   ```

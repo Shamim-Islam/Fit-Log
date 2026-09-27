@@ -60,10 +60,12 @@ const MyPlanPage = () => {
       <section className="mx-auto container px-4 py-12 sm:px-6 lg:px-8">
         {/* Header */}
         <div>
-          <span className="h-0.5 w-8 bg-[#ccff00]" />
-          <p className="mb-3 text-xs font-black uppercase tracking-[0.25em] text-[#ccff00]">
-            Your workout log
-          </p>
+          <div className="mb-5 flex items-center gap-3 ">
+            <span className="h-0.5 w-8 bg-[#ccff00]" />
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#ccff00]">
+              Your workout log
+            </p>
+          </div>
 
           <h1 className="font-oswald text-5xl font-black uppercase tracking-tight sm:text-6xl">
             My Plan
@@ -123,12 +125,12 @@ const MyPlanPage = () => {
 
           {/* Sorting Dropdown */}
           <div className="relative flex items-center pb-2 sm:pb-0">
-            <span className="mr-3 text-xs text-zinc-500">Sort By</span>
+            <span className="mr-3 text-sm text-zinc-500">Sort By</span>
             <div className="relative">
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="appearance-none rounded border border-white/10 bg-[#101419] px-4 py-2 pr-10 text-xs font-bold text-white outline-none focus:border-[#ccff00]"
+                className="appearance-none rounded-xl border border-white/10 bg-[#101419] px-4 py-2 pr-10 text-sm font-bold text-white outline-none focus:border-[#ccff00]"
               >
                 <option value="duration">Duration</option>
                 <option value="rating">Rating</option>
